@@ -30,8 +30,8 @@ def imageCompression(dataMatrix, singularValues):
 print('*** Image Compression using SVD - a demo')
 redColor, greenColor, blueColor, originalImage = bacaGambar('static/photo/lena.png')
 
-width = 512
-height = 512
+width =512
+height=512
 
 singularValues = ukuran
 
