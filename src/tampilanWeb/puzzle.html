@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" type="text/css" href="stylepuzzle.css">
+</head>
+
+<body>
+    <audio autoplay>
+    <source src="music/BLACKPINK - 'How You Like That' MV.mp3" type="audio/mpeg">
+  </audio>
+</body>
+
+</html>
+<html>
+<style type='text/css'>
+    /* Efek Bola Salju */
+    
+    .snowball {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        z-index: 20
+    }
+    
+    .snowsand {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        z-index: 1
+    }
+</style>
+
+<head>
+    <title>TTS GAMES</title>
+    <link rel="stylesheet" type="text/css" href="puzzle.css">
+</head>
+<div class='snowsand'>
+    <canvas class='snowball' id='snowball'></canvas>
+</div>
+<script type='text/javascript'>
+    //<![CDATA[
+    ! function() {
+        function t(t) {
+            var n = t.getContext("2d"),
+                e = 0,
+                i = 0,
+                o = [],
+                d = function() {
+                    this.x = this.y = this.dx = this.dy = 0, this.reset()
+                };
+
+            function a() {
+                e = window.innerWidth, i = window.innerHeight, t.width = e, t.height = i,
+                    function(t) {
+                        if (t != o.length) {
+                            o = [];
+                            for (var n = 0; n < t; n++) o.push(new d)
+                        }
+                    }(e * i / 1e4)
+            }
+            d.prototype.reset = function() {
+                    this.y = Math.random() * i, this.x = Math.random() * e, this.dx = 1 * Math.random() - .5, this.dy = .5 * Math.random() + .5
+                }, a(),
+                function t() {
+                    n.clearRect(0, 0, e, i), n.fillStyle = "rgba(255,255,255,.3)", o.forEach(function(t) {
+                        t.y += t.dy, t.x += t.dx, t.y > i && (t.y = 0), t.x > e && (t.reset(), t.y = 0), n.beginPath(), n.arc(t.x, t.y, 5, 0, 2 * Math.PI, !1), n.fill()
+                    }), window.requestAnimationFrame(t)
+                }(), window.addEventListener("resize", a)
+        }
+        var n;
+        n = function() {
+            t(document.getElementById("snowball"))
+        }, "loading" != document.readyState ? n() : document.addEventListener("DOMContentLoaded", n)
+    }();
+    //]]>
+</script>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="aboutgame.html" class="active">About Games</a></li>
+        </ul>
+    </header>
+    <div class="game">
+        <div class="grid">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>10</button>
+            <button>11</button>
+            <button>12</button>
+            <button>13</button>
+            <button>14</button>
+            <button>15</button>
+            <button></button>
+        </div>
+        <div class="footer">
+            <button>Play</button>
+            <span id="move">Move: 100</span>
+            <span id="time">Time: 100</span>
+        </div>
+    </div>
+    <h1 class="message">You win!</h1>
+    <script src="puzzle.js"></script>
+</body>
+
+</html>

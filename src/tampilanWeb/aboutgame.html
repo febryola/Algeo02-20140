@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Games</title>
+</head>
+
+<body>
+    <audio autoplay>
+    <source src="music/BLACKPINK - 'Ice Cream (with Selena Gomez)' M_V.mp3" type="audio/mpeg">
+  </audio>
+</body>
+
+</html>
+<html>
+<style type='text/css'>
+    /* Efek Bola Salju */
+    
+    .snowball {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        z-index: 20
+    }
+    
+    .snowsand {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        z-index: 1
+    }
+</style>
+
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" type="text/css" href="aboutgame.css">
+</head>
+<div class='snowsand'>
+    <canvas class='snowball' id='snowball'></canvas>
+</div>
+<script type='text/javascript'>
+    //<![CDATA[
+    ! function() {
+        function t(t) {
+            var n = t.getContext("2d"),
+                e = 0,
+                i = 0,
+                o = [],
+                d = function() {
+                    this.x = this.y = this.dx = this.dy = 0, this.reset()
+                };
+
+            function a() {
+                e = window.innerWidth, i = window.innerHeight, t.width = e, t.height = i,
+                    function(t) {
+                        if (t != o.length) {
+                            o = [];
+                            for (var n = 0; n < t; n++) o.push(new d)
+                        }
+                    }(e * i / 1e4)
+            }
+            d.prototype.reset = function() {
+                    this.y = Math.random() * i, this.x = Math.random() * e, this.dx = 1 * Math.random() - .5, this.dy = .5 * Math.random() + .5
+                }, a(),
+                function t() {
+                    n.clearRect(0, 0, e, i), n.fillStyle = "rgba(255,255,255,.3)", o.forEach(function(t) {
+                        t.y += t.dy, t.x += t.dx, t.y > i && (t.y = 0), t.x > e && (t.reset(), t.y = 0), n.beginPath(), n.arc(t.x, t.y, 5, 0, 2 * Math.PI, !1), n.fill()
+                    }), window.requestAnimationFrame(t)
+                }(), window.addEventListener("resize", a)
+        }
+        var n;
+        n = function() {
+            t(document.getElementById("snowball"))
+        }, "loading" != document.readyState ? n() : document.addEventListener("DOMContentLoaded", n)
+    }();
+    //]]>
+</script>
+
+<body>
+    <header>
+        <div class="header">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="compression.html">Compression</a></li>
+                <li><a href="us.html">About Us</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class='card-header'>
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px;">Puzzle Angka</h1>
+                </div>
+                <a href="puzzle.html">
+                    <div style="cursor:pointer; " class="card-circle">
+                        <img src='gambar/puzzle.png'>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px;">Kill Minions</h1>
+                </div>
+                <a href="daemon.html" ">
+                    <div style="cursor:pointer; " class="card-circle ">
+                        <img src='gambar/daemon.png'>
+                    </div>
+                </a>
+            </div>
+            <div class="card ">
+                <div class="card-header ">
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px; ">Tic Tac Tic Tac</h1>
+                </div>
+                <a href="tictac.html ">
+                    <div style="cursor:pointer; "  class="card-circle ">
+                        <img src='gambar/tictac.png'>
+                    </div>
+                </a>
+            </div>
+            <div class="card ">
+                <div class="card-header ">
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px; ">FLIP</h1>
+                </div>
+                <a href="flip.html ">
+                    <div style="cursor:pointer; "  class="card-circle ">
+                        <img src='gambar/flip.png'>
+                    </div>
+                </a>
+            </div>
+            <div class="card ">
+                <div class="card-header ">
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px; ">Kill Bird</h1>
+                </div>
+                <a href="bird.html ">
+                    <div style="cursor:pointer; "  class="card-circle ">
+                        <img src='gambar/bird.png'>
+                    </div>
+                </a>
+            </div>
+            <div class="card ">
+                <div class="card-header ">
+                    <h1 style="background-color:rgb(128, 30, 255); border-radius:10px; ">Stack</h1>
+                </div>
+                <a href="stack.html ">
+                    <div style="cursor:pointer; "  class="card-circle ">
+                        <img src='gambar/stack.png'>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

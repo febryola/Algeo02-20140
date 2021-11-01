@@ -1,0 +1,201 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: century gathic;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("gambar/hii\ kamu.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+ul {
+    list-style-type: none;
+    float: right;
+    margin-top: 20px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.6s;
+}
+
+ul li a:hover {
+    background-color: white;
+    color: black;
+}
+
+ul li.active a {
+    background-color: white;
+    color: black;
+}
+
+.main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title hl {
+    color: white;
+    font-size: 66px
+}
+
+.btn {
+    border: 1px solid white;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.6s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 80%;
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.card {
+    width: 500px;
+    height: 400px;
+    background-color: #5e17d1;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.308);
+    border-radius: 100px;
+    display: grid;
+    place-items: center;
+    margin: 40px 40px;
+}
+
+.card h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.content h1 {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.break {
+    color: #17d155;
+}
+
+.content .big {
+    font-size: 28px;
+    width: 400px;
+    background-color: #00754e;
+    color: #6394ee;
+}
+
+.card img {
+    max-width: 400px;
+    max-height: 210px;
+}
+
+.card-circle {
+    width: 450px;
+    height: 250px;
+    border-radius: 50.5px;
+    background: #007575f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-circle:hover {
+    cursor: grab;
+    box-shadow: 0px 0px 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+    .header {
+        font-size: 8px;
+    }
+    .card {
+        width: 80%;
+        height: 80%;
+        background-color: #d15217;
+        background: #17d1a9;
+        box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.8);
+        border-radius: 50px;
+        display: grid;
+        place-items: center;
+        margin: 40px 0;
+    }
+    .card h1 {
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .content h1 {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    .break {
+        color: #d117d1;
+    }
+    .content .big {
+        font-size: 12px;
+        background-color: #007565;
+        width: 230px;
+        color: #63eeee;
+        text-align: center;
+    }
+    .card img {
+        width: 180px;
+    }
+    .card-circle {
+        width: 80%;
+        height: 80%;
+        background: #753900;
+        display: grid;
+        place-items: center;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+}

@@ -1,7 +1,7 @@
 #Menggunakan library numpy untuk pengolahan data dan library pillow untuk image
 import numpy            #import library numpy
 from PIL import Image   #import library pillow untuk pengolahan citra gambar
-
+from modules.svdutils import *
 
 ukuran = int(input("Masukkan ukuran file yang ingin dikompresi: "))
 
@@ -17,7 +17,7 @@ def bacaGambar(pathGambar):
 
 
 def imageCompression(dataMatrix, singularValues):
-    data1, data2, data3 = numpy.linalg.svd(dataMatrix)
+    data1, data2, data3 = svd_decompose(dataMatrix)
     dataCompression = numpy.zeros((dataMatrix.shape[0], dataMatrix.shape[1]))
     k = singularValues
 
