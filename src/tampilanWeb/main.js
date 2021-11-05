@@ -11,6 +11,7 @@ const submitButton = document.getElementById(submitButtonId);
 submitButton.addEventListener("click", () => {
   const file = fileInput.files[0];
   const formData = new FormData();
+  // TODO: Delete name field, add compression rate field from user input.
   formData.append("name", fileInput.value.replace("C:\\fakepath\\", ""));
   formData.append("image", file);
   const xhr = new XMLHttpRequest();
