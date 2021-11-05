@@ -1,9 +1,7 @@
 const express = require("express");
 const bp = require("body-parser");
 const formidable = require("formidable").formidable;
-const { compress } = require("./src/compress");
-
-const fs = require("fs");
+const { compress, getNewFilename, clean } = require("./src/compress");
 
 const port = 8080;
 const app = express();
@@ -20,11 +18,17 @@ app.post("/compress", (req, res) => {
       res.status(500);
     }
     const image = files["image"];
-    const path = image.filepath;
-    const name = image.originalFilename;
-    compress(path, name);
-    // TODO: Send the compressed file as response.
-    res.send("");
+    const filepath = image.filepath;
+    /**
+     * @type {string}
+     */
+    const filename = image.originalFilename;
+    compress(filepath, filename);
+
+    res.sendFile(getNewFilename(filename), { root: "temp" }, (err) => {
+      clean(filename);
+      res.end();
+    });
   });
 });
 app.listen(port);
