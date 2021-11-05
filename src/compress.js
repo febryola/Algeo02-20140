@@ -16,10 +16,7 @@ function compress(filepath, name) {
     path.normalize(imageFilePath),
     "0.15",
   ].join(" ");
-  // TODO: Fix process execution, because somehow this
-  // exec("py compress.py ..\\..\\temp\\Example.jpg 0.15", { cwd: "modules" });
-  //       is working. But this is not.
-  exec(cmd, { cwd: "modules" });
+  exec(cmd, { cwd: "src/modules", env: process.env });
 }
 
 /**
