@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const { exec } = require("child_process");
+const { execSync } = require("child_process");
 /**
  *
  * @param {string} filepath Uploaded image file path.
@@ -16,7 +16,7 @@ function compress(filepath, name) {
     path.normalize(imageFilePath),
     "0.15",
   ].join(" ");
-  exec(cmd, { cwd: "src/modules", env: process.env });
+  execSync(cmd, { cwd: "src/modules", env: process.env });
 }
 
 /**

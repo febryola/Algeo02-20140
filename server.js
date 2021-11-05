@@ -3,6 +3,8 @@ const bp = require("body-parser");
 const formidable = require("formidable").formidable;
 const { compress } = require("./src/compress");
 
+const fs = require("fs");
+
 const port = 8080;
 const app = express();
 
@@ -17,7 +19,6 @@ app.post("/compress", (req, res) => {
       console.log(err);
       res.status(500);
     }
-    // console.log(fields);
     const image = files["image"];
     const path = image.filepath;
     const name = image.originalFilename;
