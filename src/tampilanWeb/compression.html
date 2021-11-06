@@ -1,12 +1,61 @@
-<!-- This is just an example, subject to change. -->
-<!-- TODO: Implement full layout & ui. -->
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <script defer src="main.js"></script>
-  </head>
-  <body>
-    <input id="file" type="file" />
-    <button id="submit" type="submit">SUBMIT</button>
-  </body>
+    <link rel="stylesheet" href="compression.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Image<span>Compression.</span></a></div>
+            <ul class="menu">
+                <li><a href="index.html" class="menu-btn">Home</a></li>
+                <li><a href="aboutgame.html" class="menu-btn">Mau Main?</a></li>
+                <li><a href="us.html" class="menu-btn">About Us</a></li>
+                <li><a href="web.html" class="menu-btn">About Web</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+    </nav>
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                                No file chosen
+                            </div>
+                        </div>
+                        <div id="cancel-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="file-name">
+                            File name here
+                        </div>
+                    </div>
+                    <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+                    <input id="file" type="file" hidden>
+                    <button id="submit" type="submit">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
 </html>
