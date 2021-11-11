@@ -336,6 +336,7 @@ section {
     height: 380px;
     width: 480px;
     position: relative;
+    margin-left: 50px;
 }
 
 .container .wrapper {
