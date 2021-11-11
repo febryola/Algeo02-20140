@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageFilter
 from svdutils import toscale, clamp, tsvd
 
-# Usage : py compress.py input_file output_file
+# Usage : py compress.py input_file compression_rate
 argparser = argparse.ArgumentParser()
 argparser.add_argument("input")
 argparser.add_argument("rate")
@@ -44,7 +44,7 @@ m, n = r.shape
 
 # Split color matrices into separate chunks
 # Compress each chunk with truncated SVD
-# Then reconstruct the color matrics
+# Then reconstruct the color matrices
 
 for i in range(0, m, chunk_size):
     hb = i + chunk_size if i + chunk_size <= m else m
@@ -54,7 +54,7 @@ for i in range(0, m, chunk_size):
         cols = clamp(rank, 0, chunk.shape[1])
         # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
         u, s, vt = tsvd(chunk, cols)
-        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        sub = u.dot(np.diag(s)).dot(vt)
         r[i:hb, j:vb] = sub
 
 for i in range(0, m, chunk_size):
@@ -65,7 +65,7 @@ for i in range(0, m, chunk_size):
         cols = clamp(rank, 0, chunk.shape[1])
         # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
         u, s, vt = tsvd(chunk, cols)
-        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        sub = u.dot(np.diag(s)).dot(vt)
         g[i:hb, j:vb] = sub
 
 for i in range(0, m, chunk_size):
@@ -76,7 +76,7 @@ for i in range(0, m, chunk_size):
         cols = clamp(rank, 0, chunk.shape[1])
         # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
         u, s, vt = tsvd(chunk, cols)
-        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        sub = u.dot(np.diag(s)).dot(vt)
         b[i:hb, j:vb] = sub
 
 
