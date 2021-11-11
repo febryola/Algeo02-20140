@@ -1,8 +1,9 @@
 import os
 import argparse
-import math
+# import time
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
+from svdutils import toscale, clamp, tsvd
 
 # Usage : py compress.py input_file output_file
 argparser = argparse.ArgumentParser()
@@ -10,9 +11,12 @@ argparser.add_argument("input")
 argparser.add_argument("rate")
 args = argparser.parse_args()
 
+
 # Constants
 input_filename = args.input
-rate = float(args.rate)
+# TODO: adjust chunk_size and rank based on args.rate
+chunk_size = 32
+rank = toscale(chunk_size, 0.05)
 
 # File extension
 [filename, ext] = os.path.splitext(input_filename)
@@ -23,42 +27,63 @@ image_array = np.array(image)
 
 # Channels
 has_alpha = False
-r = image_array[:, :, 0]
-g = image_array[:, :, 1]
-b = image_array[:, :, 2]
+r = image_array[:, :, 0].astype("float64")
+g = image_array[:, :, 1].astype("float64")
+b = image_array[:, :, 2].astype("float64")
 if (image_array.shape[2] == 4):
     a = image_array[:, :, 3]
     has_alpha = True
 
-# TODO: implements custom svd algorithm
-ur, sr, vtr = np.linalg.svd(r)
-ug, sg, vtg = np.linalg.svd(g)
-ub, sb, vtb = np.linalg.svd(b)
+# Dimension
+m, n = r.shape
 
-# TODO : implements accurate calculation of singular
-#        values taken based on compression rate
-l = math.floor(len(sr) * rate * rate)
-l = 1 if l == 0 else l
+# Used for debug purpose
+# vchunksize = np.ceil(m / 64)
+# hchunksize = np.ceil(n / 64)
+# start = time.time()
 
-# Calculate new color matrices
-ur_sub = ur[:, 0:l]
-vtr_sub = vtr[0:l, :]
-r_singulars = np.diag(sr)[0:l, 0:l]
+# Split color matrices into separate chunks
+# Compress each chunk with truncated SVD
+# Then reconstruct the color matrics
 
-ug_sub = ug[:, 0:l]
-vtg_sub = vtg[0:l, :]
-g_singulars = np.diag(sg)[0:l, 0:l]
+for i in range(0, m, chunk_size):
+    hb = i + chunk_size if i + chunk_size <= m else m
+    for j in range(0, n, chunk_size):
+        vb = j + chunk_size if j + chunk_size <= n else n
+        chunk = r[i:hb, j:vb]
+        cols = clamp(rank, 0, chunk.shape[1])
+        # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
+        u, s, vt = tsvd(chunk, cols)
+        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        r[i:hb, j:vb] = sub
 
-ub_sub = ub[:, 0:l]
-vtb_sub = vtb[0:l, :]
-b_singulars = np.diag(sb)[0:l, 0:l]
+for i in range(0, m, chunk_size):
+    hb = i + chunk_size if i + chunk_size <= m else m
+    for j in range(0, n, chunk_size):
+        vb = j + chunk_size if j + chunk_size <= n else n
+        chunk = g[i:hb, j:vb]
+        cols = clamp(rank, 0, chunk.shape[1])
+        # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
+        u, s, vt = tsvd(chunk, cols)
+        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        g[i:hb, j:vb] = sub
 
-red_channel = np.matmul(
-    np.matmul(ur_sub, r_singulars), vtr_sub).astype("uint8")
-green_channel = np.matmul(
-    np.matmul(ug_sub, g_singulars), vtg_sub).astype("uint8")
-blue_channel = np.matmul(
-    np.matmul(ub_sub, b_singulars), vtb_sub).astype("uint8")
+for i in range(0, m, chunk_size):
+    hb = i + chunk_size if i + chunk_size <= m else m
+    for j in range(0, n, chunk_size):
+        vb = j + chunk_size if j + chunk_size <= n else n
+        chunk = b[i:hb, j:vb]
+        cols = clamp(rank, 0, chunk.shape[1])
+        # u, s, vt = rsvd(chunk, clamp(rank, 0, chunk.shape[1]))
+        u, s, vt = tsvd(chunk, cols)
+        sub = u[:, :cols].dot(np.diag(s)).dot(vt)
+        b[i:hb, j:vb] = sub
+
+
+# Correct floating point values to unit8 types
+red_channel = r.astype("uint8")
+green_channel = g.astype("uint8")
+blue_channel = b.astype("uint8")
 
 # Reform color channels to an image
 image_red = Image.fromarray(red_channel, mode=None)
@@ -73,5 +98,12 @@ if (has_alpha):
 else:
     image = Image.merge("RGB", (image_red, image_green, image_blue))
 
+# Smooth filter to correct chunk borders
+image = image.filter(ImageFilter.SMOOTH_MORE)
+
 # Save the result image
 image.save(f"{filename}-compressed{ext}", optimize=True)
+
+# Used for debug purpose
+# end = time.time()
+# print(f"{end - start} seconds")
