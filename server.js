@@ -23,12 +23,15 @@ app.post("/compress", (req, res) => {
      * @type {string}
      */
     const filename = image.originalFilename;
-    compress(filepath, filename);
+    const compRes = compress(filepath, filename);
+    // console.log(compRes);
+    res.json(compRes);
+    res.end();
+    clean(filename);
 
-    res.sendFile(getNewFilename(filename), { root: "temp" }, (err) => {
-      clean(filename);
-      res.end();
-    });
+    // res.sendFile(getNewFilename(filename), { root: "temp" }, (err) => {
+    //   res.end();
+    // });
   });
 });
 app.listen(port);

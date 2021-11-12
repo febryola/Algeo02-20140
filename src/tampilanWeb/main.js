@@ -50,10 +50,14 @@ submitButton.addEventListener("click", () => {
   formData.append("image", file);
   const xhr = new XMLHttpRequest();
   xhr.open("POST", apiUrl);
-  xhr.responseType = "blob";
+  xhr.responseType = "json";
 
   xhr.onload = () => {
-    const dataUrl = URL.createObjectURL(xhr.response);
+    /**
+     * @type {{dataUrl: string, time: string, pixelDiff: string}
+     */
+    const res = xhr.response;
+    const { dataUrl, time, pixelDiff } = res;
     imgRes.src = dataUrl;
     const nameParts = filename.split(".");
     const name = `${nameParts[0]}-compressed.${nameParts[1]}`;
@@ -65,26 +69,6 @@ submitButton.addEventListener("click", () => {
 
   xhr.send(formData);
 });
-
-/**
- *
- * @param {string} ext File extension
- */
-function getMimeType(ext) {
-  switch (ext) {
-    case "jpg":
-    case "jpeg":
-      return "image/jpeg";
-    case "png":
-      return "image/png";
-    case "webp":
-      return "image/webp";
-    case "ico":
-      return "image/vnd.microsoft.icon";
-    case "svg":
-      return "image/svg+xml";
-  }
-}
 
 function download(dataUrl, name) {
   const a = document.createElement("a");

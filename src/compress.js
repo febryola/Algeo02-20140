@@ -7,6 +7,8 @@ const { execSync } = require("child_process");
  *
  * @param {string} filepath Uploaded image file path.
  * @param {string} name Image filename.
+ * @return {{dataUrl: string, time: string, pixelDiff: string}}
+ *         Image data url, compression time, and pixel differences.
  */
 function compress(filepath, name) {
   const compressModule = "./modules/compress.py";
@@ -20,6 +22,19 @@ function compress(filepath, name) {
     "0.15",
   ].join(" ");
   execSync(cmd, { cwd: "src/modules", env: process.env });
+  const imageData = fs.readFileSync(`temp/${getNewFilename(name)}`, "base64");
+  const ext = path.extname(name);
+  const dataUrl = `data:${getMimeType(ext)};base64,${imageData}`;
+  let result = fs.readFileSync(`temp/${path.parse(name).name}-result.txt`, {
+    encoding: "utf-8",
+  });
+  result = result.replace("\r", "");
+  const [time, pixelDiff] = result.split("\n");
+  return {
+    dataUrl,
+    time,
+    pixelDiff,
+  };
 }
 
 /**
@@ -51,8 +66,30 @@ function getNewFilename(filename) {
 function clean(filename) {
   const tempDir = "temp";
   const newFilename = getNewFilename(filename);
+  const resFilename = `${path.parse(filename).name}-result.txt`;
   fs.unlinkSync(path.join(tempDir, filename));
   fs.unlinkSync(path.join(tempDir, newFilename));
+  fs.unlinkSync(path.join(tempDir, resFilename));
+}
+
+/**
+ *
+ * @param {string} ext File extension
+ */
+function getMimeType(ext) {
+  switch (ext) {
+    case ".jpg":
+    case ".jpeg":
+      return "image/jpeg";
+    case ".png":
+      return "image/png";
+    case ".webp":
+      return "image/webp";
+    case ".ico":
+      return "image/vnd.microsoft.icon";
+    case ".svg":
+      return "image/svg+xml";
+  }
 }
 
 module.exports = { compress, getNewFilename, clean };

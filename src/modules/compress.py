@@ -1,6 +1,6 @@
 import os
 import argparse
-# import time
+import time
 import numpy as np
 from PIL import Image, ImageFilter
 from svdutils import toscale, clamp, tsvd
@@ -11,6 +11,8 @@ argparser.add_argument("input")
 argparser.add_argument("rate")
 args = argparser.parse_args()
 
+# Start time
+start = time.time()
 
 # Constants
 input_filename = args.input
@@ -37,10 +39,10 @@ if (image_array.shape[2] == 4):
 # Dimension
 m, n = r.shape
 
-# Used for debug purpose
-# vchunksize = np.ceil(m / 64)
-# hchunksize = np.ceil(n / 64)
-# start = time.time()
+# Save old color matrices to temporarily
+r_ = np.copy(r)
+g_ = np.copy(g)
+b_ = np.copy(b)
 
 # Split color matrices into separate chunks
 # Compress each chunk with truncated SVD
@@ -80,10 +82,19 @@ for i in range(0, m, chunk_size):
         b[i:hb, j:vb] = sub
 
 
-# Correct floating point values to unit8 types
+# Cast floating point values to unit8 types
 red_channel = r.astype("uint8")
 green_channel = g.astype("uint8")
 blue_channel = b.astype("uint8")
+
+# Count pixel differences
+rdiff = r_.astype("uint8") != red_channel
+gdiff = g_.astype("uint8") != green_channel
+bdiff = b_.astype("uint8") != blue_channel
+diff = rdiff | gdiff | bdiff
+diff = diff.sum() / (m * n)
+diff *= 100
+diff = round(diff, 2)
 
 # Reform color channels to an image
 image_red = Image.fromarray(red_channel, mode=None)
@@ -104,6 +115,12 @@ image = image.filter(ImageFilter.SMOOTH_MORE)
 # Save the result image
 image.save(f"{filename}-compressed{ext}", optimize=True)
 
-# Used for debug purpose
-# end = time.time()
-# print(f"{end - start} seconds")
+# End time
+end = time.time()
+compression_time = round(end - start, 2)
+
+# Save extra data required to be displayed
+# in the web
+f = open(f"{filename}-result.txt", "w")
+f.write(f"{compression_time}\n{diff}")
+f.close()
