@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   uploadFileButton.addEventListener("click", () => {
     defaultBtn.click();
   });
-  defaultBtn.addEventListener("change", function () {
+  defaultBtn.addEventListener("input", function () {
     const file = this.files[0];
     if (file) {
       const reader = new FileReader();
