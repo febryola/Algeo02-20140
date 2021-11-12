@@ -544,6 +544,22 @@ input {
     background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
 }
 
+.container #custom-btn1 {
+    margin-top: 10px;
+    display: block;
+    width: 40%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+}
+
 .container #submit {
     margin-top: 10px;
     display: block;
