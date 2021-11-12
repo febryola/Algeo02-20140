@@ -1,577 +1,579 @@
 /*  import google fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-
 
 /* custom scroll bar */
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
-
 
 /* all similar content styling codes */
 
 section {
-    padding: 100px 0;
+  padding: 100px 0;
 }
 
 .max-width {
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
 }
-
 
 /* navbar styling */
 
 .navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-    padding: 30px 0;
-    font-family: 'Ubuntu', sans-serif;
-    transition: all 0.3s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 0;
+  font-family: "Ubuntu", sans-serif;
+  transition: all 0.3s ease;
 }
 
 .navbar.sticky {
-    padding: 15px 0;
-    background: crimson;
+  padding: 15px 0;
+  background: crimson;
 }
 
 .navbar .max-width {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbar .logo a {
-    color: #fff;
-    font-size: 35px;
-    font-weight: 600;
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
 }
 
 .navbar .logo a span {
-    color: crimson;
-    transition: all 0.3s ease;
+  color: crimson;
+  transition: all 0.3s ease;
 }
 
 .navbar.sticky .logo a span {
-    color: #fff;
+  color: #fff;
 }
 
 .navbar .menu li {
-    list-style: none;
-    display: inline-block;
+  list-style: none;
+  display: inline-block;
 }
 
 .navbar .menu li a {
-    display: block;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 25px;
-    transition: color 0.3s ease;
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
 }
 
 .navbar .menu li a:hover {
-    color: crimson;
+  color: crimson;
 }
 
 .navbar.sticky .menu li a:hover {
-    color: #fff;
+  color: #fff;
 }
-
 
 /* menu btn styling */
 
 .menu-btn {
-    color: #fff;
-    font-size: 23px;
-    cursor: pointer;
-    display: none;
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
 }
 
 .scroll-up-btn {
-    position: fixed;
-    height: 45px;
-    width: 42px;
-    background: crimson;
-    right: 30px;
-    bottom: 10px;
-    text-align: center;
-    line-height: 45px;
-    color: #fff;
-    z-index: 9999;
-    font-size: 30px;
-    border-radius: 6px;
-    border-bottom-width: 2px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: crimson;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 .scroll-up-btn.show {
-    bottom: 30px;
-    opacity: 1;
-    pointer-events: auto;
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .scroll-up-btn:hover {
-    filter: brightness(90%);
+  filter: brightness(90%);
 }
-
 
 /* home section styling */
 
 .home {
-    display: flex;
-    background: url("gambar/c.jpg") no-repeat center;
-    height: 100vh;
-    color: #fff;
-    min-height: 500px;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  background: url("gambar/c.jpg") no-repeat center;
+  height: 100vh;
+  color: #fff;
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .home .max-width {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .home .max-width .row {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .home .home-content .text-1 {
-    font-size: 27px;
+  font-size: 27px;
 }
 
 .home .home-content .text-2 {
-    font-size: 75px;
-    font-weight: 600;
-    margin-left: -3px;
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
 }
 
 .home .home-content .text-3 {
-    font-size: 40px;
-    margin: 5px 0;
+  font-size: 40px;
+  margin: 5px 0;
 }
 
 .home .home-content .text-3 span {
-    color: crimson;
-    font-weight: 500;
+  color: crimson;
+  font-weight: 500;
 }
 
 .home .home-content a {
-    display: inline-block;
-    background: crimson;
-    color: #fff;
-    font-size: 25px;
-    padding: 12px 36px;
-    margin-top: 20px;
-    font-weight: 400;
-    border-radius: 6px;
-    border: 2px solid crimson;
-    transition: all 0.3s ease;
+  display: inline-block;
+  background: crimson;
+  color: #fff;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  font-weight: 400;
+  border-radius: 6px;
+  border: 2px solid crimson;
+  transition: all 0.3s ease;
 }
 
 .home .home-content a:hover {
-    color: crimson;
-    background: none;
+  color: crimson;
+  background: none;
 }
 
 @media (max-width: 1104px) {
-    .about .about-content .left img {
-        height: 350px;
-        width: 350px;
-    }
+  .about .about-content .left img {
+    height: 350px;
+    width: 350px;
+  }
 }
 
 @media (max-width: 991px) {
-    .max-width {
-        padding: 0 50px;
-    }
+  .max-width {
+    padding: 0 50px;
+  }
 }
 
 @media (max-width: 947px) {
-    .menu-btn {
-        display: block;
-        z-index: 999;
-    }
-    .menu-btn i.active:before {
-        content: "\f00d";
-    }
-    .navbar .menu {
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        left: -100%;
-        top: 0;
-        background: #111;
-        text-align: center;
-        padding-top: 80px;
-        transition: all 0.3s ease;
-    }
-    .navbar .menu.active {
-        left: 0;
-    }
-    .navbar .menu li {
-        display: block;
-    }
-    .navbar .menu li a {
-        display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
-    }
-    .home .home-content .text-2 {
-        font-size: 70px;
-    }
-    .home .home-content .text-3 {
-        font-size: 35px;
-    }
-    .home .home-content a {
-        font-size: 23px;
-        padding: 10px 30px;
-    }
-    .max-width {
-        max-width: 930px;
-    }
-    .about .about-content .column {
-        width: 100%;
-    }
-    .about .about-content .left {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto 60px;
-    }
-    .about .about-content .right {
-        flex: 100%;
-    }
-    .services .serv-content .card {
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
-    .skills .skills-content .column,
-    .contact .contact-content .column {
-        width: 100%;
-        margin-bottom: 35px;
-    }
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+  .menu-btn i.active:before {
+    content: "\f00d";
+  }
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: #111;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar .menu li {
+    display: block;
+  }
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+  .max-width {
+    max-width: 930px;
+  }
+  .about .about-content .column {
+    width: 100%;
+  }
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+  .about .about-content .right {
+    flex: 100%;
+  }
+  .services .serv-content .card {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+  .skills .skills-content .column,
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
 }
 
 @media (max-width: 690px) {
-    .max-width {
-        padding: 0 23px;
-    }
-    .home .home-content .text-2 {
-        font-size: 60px;
-    }
-    .home .home-content .text-3 {
-        font-size: 32px;
-    }
-    .home .home-content a {
-        font-size: 20px;
-    }
-    .services .serv-content .card {
-        width: 100%;
-    }
+  .max-width {
+    padding: 0 23px;
+  }
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+  .home .home-content a {
+    font-size: 20px;
+  }
+  .services .serv-content .card {
+    width: 100%;
+  }
 }
 
 @media (max-width: 500px) {
-    .home .home-content .text-2 {
-        font-size: 50px;
-    }
-    .home .home-content .text-3 {
-        font-size: 27px;
-    }
-    .about .about-content .right .text,
-    .skills .skills-content .left .text {
-        font-size: 19px;
-    }
-    .contact .right form .fields {
-        flex-direction: column;
-    }
-    .contact .right form .name,
-    .contact .right form .email {
-        margin: 0;
-    }
-    .right form .error-box {
-        width: 150px;
-    }
-    .scroll-up-btn {
-        right: 15px;
-        bottom: 15px;
-        height: 38px;
-        width: 35px;
-        font-size: 23px;
-        line-height: 38px;
-    }
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+  .about .about-content .right .text,
+  .skills .skills-content .left .text {
+    font-size: 19px;
+  }
+  .contact .right form .fields {
+    flex-direction: column;
+  }
+  .contact .right form .name,
+  .contact .right form .email {
+    margin: 0;
+  }
+  .right form .error-box {
+    width: 150px;
+  }
+  .scroll-up-btn {
+    right: 15px;
+    bottom: 15px;
+    height: 38px;
+    width: 35px;
+    font-size: 23px;
+    line-height: 38px;
+  }
 }
 
 .container {
-    height: 380px;
-    width: 480px;
-    position: relative;
-    margin-left: 50px;
-    margin-top: 20px;
+  height: 380px;
+  width: 480px;
+  position: relative;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
 .container .wrapper {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    background: #fff;
-    border: 2px dashed #c2cdda;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .select-box {
-    position: relative;
-    display: flex;
-    width: 300px;
-    flex-direction: column;
-    top: 50%;
-    left: 40%;
+  position: relative;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  top: 50%;
+  left: 40%;
 }
 
 .select-box .options-container {
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
-    color: #f5f6fa;
-    max-height: 0;
-    width: 100%;
-    opacity: 0;
-    transition: all 0.4s;
-    border-radius: 8px;
-    overflow: hidden;
-    order: 1;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  order: 1;
 }
 
 .selected {
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    color: #f5f6fa;
-    position: relative;
-    order: 0;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #f5f6fa;
+  position: relative;
+  order: 0;
 }
 
 .selected::after {
-    content: "";
-    background: url("img/arrow-down.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    height: 100%;
-    width: 32px;
-    right: 10px;
-    top: 5px;
-    transition: all 0.4s;
+  content: "";
+  background: url("img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+  transition: all 0.4s;
 }
 
 .select-box .options-container.active {
-    max-height: 240px;
-    opacity: 1;
-    overflow-y: scroll;
-    margin-top: 5px;
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  margin-top: 5px;
 }
 
-.select-box .options-container.active+.selected::after {
-    transform: rotateX(180deg);
-    top: -6px;
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
 }
 
 .select-box .options-container::-webkit-scrollbar {
-    width: 8px;
-    background: #0d141f;
-    border-radius: 0 8px 8px 0;
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
 }
 
 .select-box .options-container::-webkit-scrollbar-thumb {
-    background: #525861;
-    border-radius: 0 8px 8px 0;
+  background: #525861;
+  border-radius: 0 8px 8px 0;
 }
 
 .select-box .option,
 .selected {
-    padding: 12px 24px;
-    cursor: pointer;
+  padding: 12px 24px;
+  cursor: pointer;
 }
 
 .select-box .option:hover {
-    background: #414b57;
+  background: #414b57;
 }
 
 .select-box label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .select-box .option .radio {
-    display: none;
+  display: none;
 }
-
 
 /* Searchbox */
 
 .search-box input {
-    width: 100%;
-    padding: 12px 16px;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    position: absolute;
-    border-radius: 8px 8px 0 0;
-    z-index: 100;
-    border: 8px solid #2f3640;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s;
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  border: 8px solid #2f3640;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
 }
 
 .search-box input:focus {
-    outline: none;
+  outline: none;
 }
 
-.select-box .options-container.active~.search-box input {
-    opacity: 1;
-    pointer-events: auto;
+.select-box .options-container.active ~ .search-box input {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .wrapper.active {
-    border: none;
+  border: none;
 }
 
 .wrapper .image {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .wrapper .icon {
-    font-size: 100px;
-    color: #9658fe;
+  font-size: 100px;
+  color: #9658fe;
 }
 
 .wrapper .text {
-    font-size: 20px;
-    font-weight: 500;
-    color: #5B5B7B;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5b5b7b;
 }
 
 .wrapper #cancel-btn i {
-    position: absolute;
-    font-size: 20px;
-    right: 15px;
-    top: 15px;
-    color: #fea358;
-    cursor: pointer;
-    display: none;
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  color: #fea358;
+  cursor: pointer;
+  display: none;
 }
 
 .wrapper.active:hover #cancel-btn i {
-    display: block;
+  display: block;
 }
 
 .wrapper #cancel-btn i:hover {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 
 .wrapper .file-name {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    padding: 8px 0;
-    font-size: 18px;
-    color: #fff;
-    display: none;
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe8c58 100%);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe8c58 100%);
 }
 
 .wrapper.active:hover .file-name {
-    display: block;
+  display: block;
 }
 
 .container #custom-btn {
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
 }
 
 .container #custom-btn1 {
-    margin-top: 10px;
-    display: block;
-    width: 40%;
-    height: 30px;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+  margin-top: 10px;
+  display: block;
+  width: 40%;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
 }
 
 .container #submit {
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+}
+
+#custom-btn.result {
+  text-transform: initial;
+}
+
+[hidden] {
+  display: none !important;
 }

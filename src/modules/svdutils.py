@@ -26,6 +26,9 @@ def tsvd(X, rank):
     R = X.T.dot(X)
     U, S = simul_pow_iter(L)
     V, S = simul_pow_iter(R)
+    ldim = U.shape[1]
+    if rank > ldim:
+        rank = ldim
     return U[:, :rank], correct_nan(np.sqrt(S[:rank])), V.T[:rank, :]
 
 
@@ -91,10 +94,11 @@ def correct_nan(arr: np.array):
         for i in range(len(nans)):
             if nans[i]:
                 if i == 0:
-                    if nans[i + 1]:
-                        arr[i] = 0
-                    else:
-                        arr[i] = 2 * arr[i + 1]
+                    if len(nans) > 1:
+                        if nans[i + 1]:
+                            arr[i] = 0
+                        else:
+                            arr[i] = 2 * arr[i + 1]
                 elif i == len(nans) - 1:
                     arr[i] = 0.75 * arr[i - 1]
                 else:

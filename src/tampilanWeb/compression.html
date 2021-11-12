@@ -1,211 +1,151 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <script defer src="main.js"></script>
-    <link rel="stylesheet" href="compression.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-</head>
+    <link rel="stylesheet" href="compression.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
+      <i class="fas fa-angle-up"></i>
     </div>
     <nav class="navbar">
-        <div class="max-width">
-            <div class="logo"><a href="#">Image<span>Compression.</span></a></div>
-
-            <ul class="menu">
-                <li><a href="index.html" class="menu-btn">Home</a></li>
-                <li><a href="aboutgame.html" class="menu-btn">Mau Main?</a></li>
-                <li><a href="us.html" class="menu-btn">About Us</a></li>
-                <li><a href="web.html" class="menu-btn">About Web</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-        <div class="select-box">
-            <div class="options-container">
-                <div class="option">
-                    <input type="radio" class="radio" id="pertama" name="category" />
-                    <label for="pertama">Chunk : 16 x 16 & Rank : 2</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="kedua" name="category" />
-                    <label for="kedua">Chunk : 16 x 16 & Rank : 4</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="ketiga" name="category" />
-                    <label for="ketiga">Chunk : 16 x 16 & Rank : 8</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="keempat" name="category" />
-                    <label for="keempat">Chunk : 16 x 16 & Rank : 16</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="kelima" name="category" />
-                    <label for="kelima">Chunk : 16 x 16 & Rank : 32</label>
-                </div>
-                <div class="option">
-                    <input type="radio" class="radio" id="keenam" name="category" />
-                    <label for="keenam">Chunk : 32 x 32 & Rank : 2</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="ketujuh" name="category" />
-                    <label for="ketujuh">Chunk : 32 x 32 & Rank : 4</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="kedelapan" name="category" />
-                    <label for="kedelapan">Chunk : 32 x 32 & Rank : 8</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="kesembilan" name="category" />
-                    <label for="kesembilan">Chunk : 32 x 32 & Rank : 16</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="kesepuluh" name="category" />
-                    <label for="kesepuluh">Chunk : 32 x 32 & Rank : 32</label>
-                </div>
-                <div class="option">
-                    <input type="radio" class="radio" id="kesebelas" name="category" />
-                    <label for="kesebelas">Chunk : 64 x 64 & Rank : 2</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="keduabelas" name="category" />
-                    <label for="keduabelas">Chunk : 64 x 64 & Rank : 4</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="ketigabelas" name="category" />
-                    <label for="ketigabelas">Chunk : 64 x 64 & Rank : 8</label>
-                </div>
-
-                <div class="option">
-                    <input type="radio" class="radio" id="keempatbelas" name="category" />
-                    <label for="keempatbelas">Chunk : 64 x 64 & Rank : 16</label>
-                </div>
-                <div class="option">
-                    <input type="radio" class="radio" id="kelimabelas" name="category" />
-                    <label for="kelimabelas">Chunk : 64 x 64 & Rank : 32</label>
-                </div>
-            </div>
-
-            <div class="selected">
-                Select Chunk & Rank Size
-            </div>
-            <!-- This code used to rotate drop icon(-180deg).. -->
-
+      <div class="max-width">
+        <div class="logo">
+          <a href="#">Image<span>Compression.</span></a>
         </div>
 
+        <ul class="menu">
+          <li><a href="index.html" class="menu-btn">Home</a></li>
+          <li><a href="aboutgame.html" class="menu-btn">Mau Main?</a></li>
+          <li><a href="us.html" class="menu-btn">About Us</a></li>
+          <li><a href="web.html" class="menu-btn">About Web</a></li>
+        </ul>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option" value="16-2">
+            <input type="radio" class="radio" id="pertama" name="category" />
+            <label for="pertama">Chunk : 16 x 16 & Rank : 2</label>
+          </div>
+
+          <div class="option" value="16-4">
+            <input type="radio" class="radio" id="kedua" name="category" />
+            <label for="kedua">Chunk : 16 x 16 & Rank : 4</label>
+          </div>
+
+          <div class="option" value="16-8">
+            <input type="radio" class="radio" id="ketiga" name="category" />
+            <label for="ketiga">Chunk : 16 x 16 & Rank : 8</label>
+          </div>
+
+          <div class="option" value="16-16">
+            <input type="radio" class="radio" id="keempat" name="category" />
+            <label for="keempat">Chunk : 16 x 16 & Rank : 16</label>
+          </div>
+          <div class="option" value="32-4">
+            <input type="radio" class="radio" id="ketujuh" name="category" />
+            <label for="ketujuh">Chunk : 32 x 32 & Rank : 4</label>
+          </div>
+
+          <div class="option" value="32-8">
+            <input type="radio" class="radio" id="kedelapan" name="category" />
+            <label for="kedelapan">Chunk : 32 x 32 & Rank : 8</label>
+          </div>
+
+          <div class="option" value="32-16">
+            <input type="radio" class="radio" id="kesembilan" name="category" />
+            <label for="kesembilan">Chunk : 32 x 32 & Rank : 16</label>
+          </div>
+          <div class="option" value="32-32">
+            <input type="radio" class="radio" id="kesepuluh" name="category" />
+            <label for="kesepuluh">Chunk : 32 x 32 & Rank : 32</label>
+          </div>
+          <div class="option" value="64-8">
+            <input
+              type="radio"
+              class="radio"
+              id="ketigabelas"
+              name="category"
+            />
+            <label for="ketigabelas">Chunk : 64 x 64 & Rank : 8</label>
+          </div>
+
+          <div class="option" value="64-16">
+            <input
+              type="radio"
+              class="radio"
+              id="keempatbelas"
+              name="category"
+            />
+            <label for="keempatbelas">Chunk : 64 x 64 & Rank : 16</label>
+          </div>
+          <div class="option" value="64-32">
+            <input
+              type="radio"
+              class="radio"
+              id="kelimabelas"
+              name="category"
+            />
+            <label for="kelimabelas">Chunk : 64 x 64 & Rank : 32</label>
+          </div>
+        </div>
+
+        <div class="selected">Select Chunk & Rank Size</div>
+        <!-- This code used to rotate drop icon(-180deg).. -->
+      </div>
     </nav>
 
     <section class="home" id="home">
-
-        <div class="max-width">
-            <div class="home-content">
-
-                <div class="container">
-                    <div class="wrapper">
-                        <div class="image">
-                            <img src="" alt="">
-                        </div>
-                        <div class="content">
-                            <div class="icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
-                            <div class="text">
-                                No file chosen
-                            </div>
-                        </div>
-                        <div id="cancel-btn">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="file-name">
-                            File name here
-                        </div>
-                    </div>
-                    <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-                    <input id="file" type="file" hidden>
-                    <button id="submit" type="submit">SUBMIT</button>
+      <div class="max-width">
+        <div class="home-content">
+          <div class="container">
+            <div class="wrapper">
+              <div class="image">
+                <img hidden src="" alt="" />
+              </div>
+              <div class="content">
+                <div class="icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
                 </div>
-
+                <div class="text">No file chosen</div>
+              </div>
+              <div id="cancel-btn">
+                <i class="fas fa-times"></i>
+              </div>
+              <div class="file-name">File name here</div>
             </div>
-
-            <div class="container">
-                <div class="wrapper">
-                    <div class="image">
-                        <img id="res" src="" alt="">
-                    </div>
-                    <div class="content">
-                        <div class="text">
-                            Display Compression Image
-                        </div>
-                    </div>
-                    <div id="cancel-btn">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="file-name">
-                        File name here
-                    </div>
-                </div>
-                <button id="custom-btn" class="download">Download</button>
-                <h1 style="margin-top:10px;">image compression time</h1><button id="custom-btn1" class="download">'waktu??'</button>
-            </div>
-
+            <button id="custom-btn" class="file-btn">Choose a file</button>
+            <input id="file" type="file" hidden />
+            <button id="submit" type="submit">SUBMIT</button>
+          </div>
         </div>
 
+        <div class="container">
+          <div class="wrapper">
+            <div class="image">
+              <img hidden id="res" src="" alt="" />
+            </div>
+            <div class="content">
+              <div class="text">Display Compression Image</div>
+            </div>
+            <div id="cancel-btn">
+              <i class="fas fa-times"></i>
+            </div>
+            <div class="file-name">File name here</div>
+          </div>
+          <button disabled id="custom-btn" class="download">Download</button>
+          <button hidden id="custom-btn" class="result"></button>
+        </div>
+      </div>
     </section>
-    <script>
-        const selected = document.querySelector(".selected");
-        const optionsContainer = document.querySelector(".options-container");
-        const searchBox = document.querySelector(".search-box input");
-
-        const optionsList = document.querySelectorAll(".option");
-
-        selected.addEventListener("click", () => {
-            optionsContainer.classList.toggle("active");
-
-            searchBox.value = "";
-            filterList("");
-
-            if (optionsContainer.classList.contains("active")) {
-                searchBox.focus();
-            }
-        });
-
-        optionsList.forEach(o => {
-            o.addEventListener("click", () => {
-                selected.innerHTML = o.querySelector("label").innerHTML;
-                optionsContainer.classList.remove("active");
-            });
-        });
-
-        searchBox.addEventListener("keyup", function(e) {
-            filterList(e.target.value);
-        });
-
-        const filterList = searchTerm => {
-            searchTerm = searchTerm.toLowerCase();
-            optionsList.forEach(option => {
-                let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-                if (label.indexOf(searchTerm) != -1) {
-                    option.style.display = "block";
-                } else {
-                    option.style.display = "none";
-                }
-            });
-        };
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>

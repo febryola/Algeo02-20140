@@ -8,7 +8,8 @@ from svdutils import toscale, clamp, tsvd
 # Usage : py compress.py input_file compression_rate
 argparser = argparse.ArgumentParser()
 argparser.add_argument("input")
-argparser.add_argument("rate")
+argparser.add_argument("chunk_size")
+argparser.add_argument("rank")
 args = argparser.parse_args()
 
 # Start time
@@ -16,9 +17,8 @@ start = time.time()
 
 # Constants
 input_filename = args.input
-# TODO: adjust chunk_size and rank based on args.rate
-chunk_size = 32
-rank = toscale(chunk_size, 0.05)
+chunk_size = int(args.chunk_size)
+rank = int(args.rank)
 
 # File extension
 [filename, ext] = os.path.splitext(input_filename)

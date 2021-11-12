@@ -1,7 +1,7 @@
 const express = require("express");
 const bp = require("body-parser");
 const formidable = require("formidable").formidable;
-const { compress, getNewFilename, clean } = require("./src/compress");
+const { compress, clean } = require("./src/compress");
 
 const port = 8080;
 const app = express();
@@ -17,22 +17,22 @@ app.post("/compress", (req, res) => {
       console.log(err);
       res.status(500);
     }
+    const chunkSize = fields["chunk_size"];
+    const rank = fields["rank"];
     const image = files["image"];
     const filepath = image.filepath;
     /**
      * @type {string}
      */
     const filename = image.originalFilename;
-    const compRes = compress(filepath, filename);
-    // console.log(compRes);
+    const compRes = compress(filepath, filename, {
+      chunkSize,
+      rank,
+    });
     res.json(compRes);
     res.end();
     clean(filename);
-
-    // res.sendFile(getNewFilename(filename), { root: "temp" }, (err) => {
-    //   res.end();
-    // });
   });
 });
 app.listen(port);
-console.log(`listening to port ${port}`);
+console.log(`listening to port ${port}: http://localhost:8080/`);

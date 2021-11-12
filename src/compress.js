@@ -2,15 +2,16 @@ const path = require("path");
 const fs = require("fs");
 const { execSync } = require("child_process");
 
-// TODO: Implement dynamic compression based on compression rate.
 /**
  *
  * @param {string} filepath Uploaded image file path.
  * @param {string} name Image filename.
+ * @param {{chunkSize: string, rank: string}} options
+ *        Compression options.
  * @return {{dataUrl: string, time: string, pixelDiff: string}}
  *         Image data url, compression time, and pixel differences.
  */
-function compress(filepath, name) {
+function compress(filepath, name, options) {
   const compressModule = "./modules/compress.py";
   const newFilepath = rename(filepath, name);
   const imageFilePath = path.relative(compressModule, newFilepath);
@@ -18,8 +19,8 @@ function compress(filepath, name) {
     "py",
     path.basename(compressModule),
     path.normalize(imageFilePath),
-    // ! CHANGE ME
-    "0.15",
+    options.chunkSize,
+    options.rank,
   ].join(" ");
   execSync(cmd, { cwd: "src/modules", env: process.env });
   const imageData = fs.readFileSync(`temp/${getNewFilename(name)}`, "base64");
