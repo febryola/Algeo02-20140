@@ -337,6 +337,7 @@ section {
     width: 480px;
     position: relative;
     margin-left: 50px;
+    margin-top: 20px;
 }
 
 .container .wrapper {
@@ -350,6 +351,117 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+nav1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+    width: 400px;
+    line-height: 40px;
+    padding: 8px 25px;
+    border-radius: 10px;
+}
+
+nav1 label {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+}
+
+.button span {
+    float: right;
+    line-height: 40px;
+    transition: 0.5s;
+}
+
+.button span.rotate {
+    transform: rotate(-180deg);
+}
+
+nav1 ul {
+    position: absolute;
+    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+    list-style: none;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+    display: none;
+}
+
+[id^=btn]:checked+ul {
+    display: block;
+}
+
+nav1 .menu:before {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(135deg, #3a8ffe 0%, #fe6b58 100%);
+    right: 20px;
+    top: -10px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+nav1 ul li {
+    line-height: 40px;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+nav1 ul li label {
+    font-size: 18px;
+}
+
+nav1 ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+nav1 ul li a:hover,
+nav1 ul li label:hover {
+    color: cyan;
+}
+
+nav1 ul ul {
+    position: static;
+}
+
+nav1 ul ul li {
+    line-height: 30px;
+    padding-left: 30px;
+    border-bottom: none;
+}
+
+nav1 ul ul li a {
+    color: #e6e6e6;
+    font-size: 17px;
+}
+
+nav1 ul li span {
+    font-size: 20px;
+    float: right;
+    margin-top: 10px;
+    padding: 0 10px;
+    transition: 0.5s;
+}
+
+nav1 ul li span.rotate {
+    transform: rotate(-180deg);
+}
+
+input {
+    display: none;
 }
 
 .wrapper.active {

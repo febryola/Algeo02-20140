@@ -14,6 +14,7 @@
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Image<span>Compression.</span></a></div>
+
             <ul class="menu">
                 <li><a href="index.html" class="menu-btn">Home</a></li>
                 <li><a href="aboutgame.html" class="menu-btn">Mau Main?</a></li>
@@ -26,9 +27,11 @@
         </div>
 
     </nav>
+
     <section class="home" id="home">
         <div class="max-width">
             <div class="home-content">
+
                 <div class="container">
                     <div class="wrapper">
                         <div class="image">
@@ -55,6 +58,7 @@
                 </div>
 
             </div>
+
             <div class="container">
                 <div class="wrapper">
                     <div class="image">
@@ -76,6 +80,70 @@
             </div>
 
         </div>
+        <nav1>
+            <label for="btn" class="button">Select Chunk Size
+            <span class="fas fa-caret-down"></span>
+            </label>
+            <input type="checkbox" id="btn">
+            <ul class="menu">
+                <li>
+                    <label for="btn-2" class="first">16 x 16
+                  <span class="fas fa-caret-down"></span>
+                  </label>
+                    <input type="checkbox" id="btn-2">
+                    <ul>
+                        <li><button id="custom-btn" class="download">Rank : 2</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 4</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 8</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 16</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 32</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 64</button></li>
+                    </ul>
+
+
+                </li>
+                <li>
+                    <label for="btn-3" class="second">32 x 32
+                  <span class="fas fa-caret-down"></span>
+                  </label>
+                    <input type="checkbox" id="btn-3">
+                    <ul>
+                        <li><button id="custom-btn" class="download">Rank : 2</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 4</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 8</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 16</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 32</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 64</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <label for="btn-4" class="first">64 x 64
+                  <span class="fas fa-caret-down"></span>
+                  </label>
+                    <input type="checkbox" id="btn-4">
+                    <ul>
+                        <li><button id="custom-btn" class="download">Rank : 2</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 4</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 8</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 16</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 32</button></li>
+                        <li><button id="custom-btn" class="download">Rank : 64</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav1>
+        <!-- This code used to rotate drop icon(-180deg).. -->
+        <script>
+            $('nav .button').click(function() {
+                $('nav .button span').toggleClass("rotate");
+            });
+            $('nav ul li .first').click(function() {
+                $('nav ul li .first span').toggleClass("rotate");
+            });
+            $('nav ul li .second').click(function() {
+                $('nav ul li .second span').toggleClass("rotate");
+            });
+        </script>
         </div>
     </section>
 </body>
