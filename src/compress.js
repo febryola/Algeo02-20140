@@ -18,7 +18,7 @@ function compress(filepath, name, options) {
   const cmd = [
     "py",
     path.basename(compressModule),
-    path.normalize(imageFilePath),
+    `"${path.normalize(imageFilePath)}"`,
     options.chunkSize,
     options.rank,
   ].join(" ");
