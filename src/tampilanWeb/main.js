@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const imgRes = document.getElementById("res");
   const downloadButton = document.getElementsByClassName("download")[0];
   const uploadFileButton = document.getElementsByClassName("file-btn")[0];
+  const [srcInnerDisplay, resInnerDisplay] =
+    document.getElementsByClassName("content");
+
   const resultBar = document.getElementsByClassName("result")[0];
   let listener = null;
   let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
@@ -46,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const reader = new FileReader();
       reader.onload = function () {
         img.removeAttribute("hidden");
+        srcInnerDisplay.setAttribute("hidden", "");
         imgRes.setAttribute("hidden", "");
+        resInnerDisplay.removeAttribute("hidden");
         const result = reader.result;
         img.src = result;
         wrapper.classList.add("active");
@@ -55,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
         img.src = "";
         imgRes.src = "";
         img.setAttribute("hidden", "");
+        srcInnerDisplay.removeAttribute("hidden");
+        imgRes.setAttribute("hidden", "");
+        resInnerDisplay.removeAttribute("hidden");
         wrapper.classList.remove("active");
         defaultBtn.value = null;
         if (listener) {
@@ -67,6 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resultBar.setAttribute("hidden", "");
     } else {
       img.src = null;
+      img.setAttribute("hidden", "");
+      srcInnerDisplay.removeAttribute("hidden");
     }
     if (this.value) {
       let valueStore = this.value.match(regExp);
@@ -83,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     if (!value) {
-      // TODO: Display an error snackbar
       alert("Please choose chunk size & compression rank !");
       return;
     }
@@ -109,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultBar.removeAttribute("hidden");
       imgRes.src = dataUrl;
       imgRes.removeAttribute("hidden");
+      resInnerDisplay.setAttribute("hidden", "");
       downloadButton.removeAttribute("disabled");
       const nameParts = filename.split(".");
       const name = `${nameParts[0]}-compressed.${nameParts[1]}`;
