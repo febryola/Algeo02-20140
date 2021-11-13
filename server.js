@@ -1,3 +1,4 @@
+const fs = require("fs");
 const express = require("express");
 const bp = require("body-parser");
 const formidable = require("formidable").formidable;
@@ -5,6 +6,10 @@ const { compress, clean } = require("./src/compress");
 
 const port = 8080;
 const app = express();
+
+if (!fs.existsSync("temp")) {
+  fs.mkdirSync("temp");
+}
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
