@@ -56,8 +56,8 @@ function rename(filepath, name) {
  * @returns Compressed image filename.
  */
 function getNewFilename(filename) {
-  [base, ext] = filename.split(".");
-  return base + "-compressed." + ext;
+  const filepath = path.parse(filename);
+  return filepath.name + "-compressed" + filepath.ext;
 }
 
 /**
