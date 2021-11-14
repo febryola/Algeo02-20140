@@ -34,6 +34,8 @@ This web consist several fitures and accessible in https://mengtubesalgeoooo.net
 
 ## How to run
 To run this program, you can run this command:
+before that, make sure that you've installed all packages of npm with npm i
+
 * Windows and Linux
 ```
 ./npm run serve
