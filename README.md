@@ -38,7 +38,7 @@ before that, make sure that you've installed all packages of npm with npm i
 
 * Windows and Linux
 ```
-./npm run serve
+npm run serve
 ```
 * after that access
 ```
